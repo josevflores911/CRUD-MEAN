@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <span class="titulo text-center">{{titulo | uppercase}}</span>
+                    <form class="mt-3" [formGroup]="productForm" (ngSubmit)="addProduct()">
+
+                        <div class="mb-3">
+                          <label for="exampleInput" class="form-label">Product</label>
+                          <input type="text" formControlName="product"
+                          class="form-control form-control-lg" 
+                          id="exampleInput" aria-describedby="Help" placeholder="product">
+
+                          <div class="text-danger"
+                          *ngIf="productForm.get('product')?.hasError('required') && productForm.get('product')?.touched">
+                            <span>name product<strong> is mandatory!!</strong></span>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInput" class="form-label">Category</label>
+                            <input type="text" formControlName="category" 
+                            class="form-control form-control-lg" 
+                            id="exampleInput" aria-describedby="Help" placeholder="category">
+                          
+                            <div class="text-danger"
+                            *ngIf="productForm.get('category')?.hasError('required') && productForm.get('category')?.touched">
+                              <span>category<strong> is mandatory!!</strong></span>
+                            </div>
+                        </div>
+
+                          <div class="mb-3">
+                            <label for="exampleInput" class="form-label">Adress</label>
+                            <input type="text" formControlName="adress" 
+                            class="form-control form-control-lg" 
+                            id="exampleInput" aria-describedby="Help" placeholder="adress">
+                          
+                            <div class="text-danger"
+                            *ngIf="productForm.get('adress')?.hasError('required') && productForm.get('adress')?.touched">
+                              <span>adress<strong> is mandatory!!</strong></span>
+                            </div>
+                        </div>
+
+                          <div class="mb-3">
+                            <label for="exampleInput" class="form-label">Prize</label>
+                            <input type="number" formControlName="prize"
+                            class="form-control form-control-lg" 
+                            id="exampleInput" aria-describedby="Help" placeholder="prize">
+
+                            <div class="text-danger"
+                            *ngIf="productForm.get('prize')?.hasError('required') && productForm.get('prize')?.touched">
+                              <span>prize<strong> is mandatory!!</strong></span>
+                            </div>
+                          </div>
+                        
+                          <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">Go Back</button>
+                            <button  type="submit" class="btn btn-success btn-lg float-end">Accept</button>
+                          </div>
+
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
